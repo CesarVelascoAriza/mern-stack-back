@@ -1,4 +1,4 @@
-const { getById, getAll, save, update, deleteuser, loginUser } = require("../services/User.service")
+const { getById, getAll, save, update, deleteuser, loginUser } = require("../services/User.services")
 
 
 

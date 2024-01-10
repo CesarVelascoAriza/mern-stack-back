@@ -11,7 +11,7 @@ const api =process.env.API_URL || "api"
 app.use(express.json());
 app.use(morgan('tiny'))
 
-app.use(authJwt)
+/*app.use(authJwt)
 app.use((err,req,res,next) =>{
     if (err) {
         res.status(403).json({message : err})
@@ -19,7 +19,7 @@ app.use((err,req,res,next) =>{
         next()
     }
 })
-
+*/
 app.use(router)
 
 

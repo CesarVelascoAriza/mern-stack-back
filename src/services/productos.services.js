@@ -1,5 +1,5 @@
 const { Product } = require("../models/Productos.shema")
-const { getByIdCategorias } = require("./Categoria.service")
+const { getByIdCategorias } = require("./Categoria.services")
 const err = require("../modelClass/ErrorHanddler")
 const getallProductosService = async () => {
     /**

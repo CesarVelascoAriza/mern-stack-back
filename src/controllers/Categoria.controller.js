@@ -1,4 +1,4 @@
-const {getAllCategorias,getByIdCategorias,saveCategoria,UpdateCategorias,deleteCategorias} = require("../services/Categoria.service")
+const {getAllCategorias,getByIdCategorias,saveCategoria,UpdateCategorias,deleteCategorias} = require("../services/Categoria.services")
 
 const getAll = async (req, res) => {
     try {
