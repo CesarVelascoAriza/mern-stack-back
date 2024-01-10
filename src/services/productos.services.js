@@ -1,6 +1,33 @@
 const { Product } = require("../models/Productos.shema")
 const { getByIdCategorias } = require("./Categoria.services")
 const err = require("../modelClass/ErrorHanddler")
+const multer = require('multer')
+
+const FILE_TYPE_MAP ={
+    'image/png':'png',
+    'image/jpeg':'jpeg',
+    'image/jpg':'jpg'
+}
+
+const storage = multer.diskStorage({
+    destination:(req,file,cb)=>{
+        const isValidFile = FILE_TYPE_MAP[file.mimetype]
+        let uploadError = new err.ErrorHanddler("error", 'error al subir el archivo')
+        if(isValidFile)
+            uploadError =null
+        cb(uploadError,'public/uploads')
+    },
+    filename:(req,file,cb)=>{
+        
+        const filename = file.originalname.split(' ').join('-')
+        const extension = FILE_TYPE_MAP[file.mimetype]
+        cb(null,`${filename}-${Date.now()}.${extension}`)
+    }
+
+})
+
+const uploaps = multer({storage:storage})
+
 const getallProductosService = async () => {
     /**
      * populate trae todo los elementos asociados en los documentos 
